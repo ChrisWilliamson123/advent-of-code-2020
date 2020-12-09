@@ -1,17 +1,21 @@
 from functools import reduce
 
-all_answers = [l.rstrip() for l in open('input.txt', 'r').readlines()]
+all_answers = open('input.txt', 'r').read()
+print(all_answers)
+groups = all_answers.split('\n\n')
 
-current_group_yesses = []
-groups = []
-for l in all_answers:
-  if l == '':
-    groups.append(current_group_yesses)
-    current_group_yesses = []
-    continue
-  current_group_yesses.append(l)
+# print(groups)
 
-groups.append(current_group_yesses)
+# current_group_yesses = []
+# groups = []
+# for l in all_answers:
+#   if l == '':
+#     groups.append(current_group_yesses)
+#     current_group_yesses = []
+#     continue
+#   current_group_yesses.append(l)
+
+# groups.append(current_group_yesses)
 
 counts = []
 for g in groups:
@@ -23,7 +27,3 @@ for g in groups:
   counts.append(len(all_exist))
 
 print(sum(counts))
-
-
-
-
